@@ -28,6 +28,10 @@ gem 'spring',        group: :development
 
 gem 'hirb'
 
+gem 'bootstrap-sass', '~> 3.3.3'
+
+gem 'simple_form'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'

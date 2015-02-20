@@ -15,12 +15,33 @@ end
 feature 'guest users creates an account' do
 	scenario 'successfully creates a new user account' do
 		visit 'users#index'
-		fill_in 'users_first_name', with: "Foo"
-		fill_in 'users_last_name', with: "Bar"
-		fill_in 'users_email', with: "foobar@yahoo.com"
-		fill_in 'users_encrypted_password', with: 'password'
-		fill_in 'users_salt', with: 'password'
+		fill_in 'user_first_name', with: "Foo"
+		fill_in 'user_last_name', with: "Bar"
+		fill_in 'user_email', with: "foobar@yahoo.com"
+		fill_in 'user_password', with: 'password'
+		fill_in 'user_password_confirmation', with: 'password'
 		click_button "Create user"
 		expect(page).to have_content "User successfully created"
+	end
+end
+
+feature 'the signin process' do
+	background do
+		User.create(:email => 'foo@bar.com', :password => 'password')
+	end
+	scenario 'Signing in with correct credentials' do
+		visit 'signin'
+		fill_in 'Email', :with => 'foo@bar.com'
+		fill_in 'Password', :with => 'password'
+		click_button 'Login'
+		###fix this later and expect something###
+	end
+	given(:other_user) {User.create(:email => 'foo@bar.com', :password => 'password')}
+	scenario 'Signing in as another user' do
+		visit 'signin'
+		fill_in 'Email', :with => 'other_user.email'
+		fill_in 'Password', :with => 'other_user.password'
+		click_button 'Login'
+		expect(page).to have_content 'Invalid email or password'
 	end
 end
