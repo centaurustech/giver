@@ -10,7 +10,8 @@ class SessionsController < ApplicationController
 		else
 			sign_in user
 			flash[:success] = "Success"
-			redirect_to user
+			puts "heerrre"
+			redirect_to user_path
 		end
  	end
 

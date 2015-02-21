@@ -27,14 +27,20 @@ end
 
 feature 'the signin process' do
 	background do
-		User.create(:email => 'foo@bar.com', :password => 'password')
+		@user = User.create!(
+			:first_name => 'Toby',
+			:last_name => 'Redd',
+			:email => 'foo@bar.com', 
+			:password => 'password',
+			:password_confirmation => 'password'
+			)
 	end
 	scenario 'Signing in with correct credentials' do
 		visit 'signin'
 		fill_in 'Email', :with => 'foo@bar.com'
 		fill_in 'Password', :with => 'password'
 		click_button 'Login'
-		###fix this later and expect something###
+		expect(current_path).to eq(user_path(@user))
 	end
 	given(:other_user) {User.create(:email => 'foo@bar.com', :password => 'password')}
 	scenario 'Signing in as another user' do

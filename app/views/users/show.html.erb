@@ -1,5 +1,59 @@
-<div class='container'>
+<div class='container show'>
 	<div class='row'>
 		<p id="success"><%= flash[:success] %></p>
+		<nav class='navbar my_nav navbar-default'>
+			<h2>Giver</h2>
+		</nav>
+		<p>Welcome <%= @user.first_name %></p>
+	</div>
+	<div class='row'>
+		<div class='col-md-4'>
+			<h2><%= link_to("My Boards") %></h2>
+		</div>
+		<div class='col-md-4'></div>
+		<div class='col-md-4'>
+			<h2>My Friends</h2>
+			<table class='table table-striped'>
+				<tr>
+					<td>Jeff McLeod</td>
+					<td><button class='btn btn-sm btn-default'>Events</button></td>
+					<td><button class='btn btn-sm btn-primary'>Boards</button></td>
+				</tr>
+				<tr>
+					<td>Josh Riboldi</td>
+					<td><button class='btn btn-sm btn-default'>Events</button></td>
+					<td><button class='btn btn-sm btn-primary'>Boards</button></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class='row'>
+		<div class='col-md-4'>
+			<h2><%= link_to("Create Board") %></h2>
+		</div>
+		<div class='col-md-4'></div>
+		<div class='col-md-4'>
+			<h2>Upcoming Events</h2>
+			<table class='table table-striped'>
+				<thead>
+					<th>Event</th>
+					<th>Deadline</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td><%= link_to("Create Event") %></td>
+						
+					</tr>
+					<tr>
+						<td><%= link_to("Toby's Birthday") %></td>
+						<td>Dec 22, 2015</td>
+					</tr>
+					<tr>
+						<td><%= link_to("Toby and Stef's Wedding") %></td>
+						<td>June 8, 2015</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>
