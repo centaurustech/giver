@@ -1,0 +1,35 @@
+<div class='container'>
+	<div class='row'>
+		<p>Event: <%= @event.event_name %></p>
+		<p>Owner: <%= @event.user.first_name %> <%= @event.user.last_name %></p>
+		<p>Deadline: <%= @event.deadline %></p>
+	</div>
+	<div class='row'>
+		<div class='col-md-5'>
+			<h3>Discussion Board</h3>
+			<table class='table table-striped'>
+				<thead>
+					<th>User</th>
+					<th>Comment</th>
+				</thead>
+				<tbody>
+					<% @comments.each do |comment| %>
+						<tr>
+							<td><%= comment.user.first_name %> <%= comment.user.last_name %></td>
+							<td><%= comment.content %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+		<div class='col-md-1'></div>
+		<div class='col-md-5'>
+			<h3>Add Comment</h3>
+			<%= simple_form_for @comment do |f| %>
+			<%= f.input :content %>
+			<%= f.input :event_id, :as => :hidden, :input_html => {:value => @event.id} %>
+			<%= f.submit "Create" %>
+			<% end %>
+		</div>
+	</div>
+</div>

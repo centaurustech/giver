@@ -14,16 +14,13 @@
 		<div class='col-md-4'>
 			<h2>My Friends</h2>
 			<table class='table table-striped'>
-				<tr>
-					<td>Jeff McLeod</td>
-					<td><button class='btn btn-sm btn-default'>Events</button></td>
-					<td><button class='btn btn-sm btn-primary'>Boards</button></td>
-				</tr>
-				<tr>
-					<td>Josh Riboldi</td>
-					<td><button class='btn btn-sm btn-default'>Events</button></td>
-					<td><button class='btn btn-sm btn-primary'>Boards</button></td>
-				</tr>
+				<% @friends.each do |person| %>
+					<tr>
+						<td><%= person.first_name %> <%= person.last_name %></td>
+						<td><%= link_to("Events", user_events_path)%></td>
+						<td><button class='btn btn-sm btn-primary'>Boards</button></td>
+					</tr>
+				<% end %>
 			</table>
 		</div>
 	</div>
@@ -34,6 +31,7 @@
 		<div class='col-md-4'></div>
 		<div class='col-md-4'>
 			<h2>Upcoming Events</h2>
+			<p id="success"><%= flash[:success] %></p>
 			<table class='table table-striped'>
 				<thead>
 					<th>Event</th>
@@ -41,17 +39,15 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td><%= link_to("Create Event") %></td>
+						<td><%= link_to("Create Event", new_event_path) %></td>
 						
 					</tr>
-					<tr>
-						<td><%= link_to("Toby's Birthday") %></td>
-						<td>Dec 22, 2015</td>
-					</tr>
-					<tr>
-						<td><%= link_to("Toby and Stef's Wedding") %></td>
-						<td>June 8, 2015</td>
-					</tr>
+					<% @events.each do |event| %>
+						<tr>
+							<td><a href="/events/<%= event.id %>"><%= event.event_name %></a></td>
+							<td><%= event.deadline %></td>
+						</tr>
+					<% end %>
 				</tbody>
 			</table>
 		</div>

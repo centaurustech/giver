@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+	has_many :events, :through => :comments
+	has_many :friendships
+	has_many :friends, :through => :friendships
 	attr_accessor :password, :password_confirmation
 	email_regex = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\z/i
 	validates :first_name, :last_name, :presence => true

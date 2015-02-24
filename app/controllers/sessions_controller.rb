@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 			sign_in user
 			flash[:success] = "Success"
 			puts "heerrre"
-			redirect_to user_path
+			redirect_to user
 		end
  	end
 
