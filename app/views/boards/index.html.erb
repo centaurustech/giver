@@ -1,0 +1,8 @@
+<div class='container'>
+	<div class='row'>
+		<p>hello from boards index page!!</p>
+		<% @boards.each do |board| %>
+			<h4><%= link_to(board.board_name, board_path(board.id)) %></h4>
+		<% end %>
+	</div>
+</div>

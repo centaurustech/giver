@@ -1,0 +1,9 @@
+<div class='container'>
+	<div class='row'>
+		<h2>Create Board</h2>
+		<%= simple_form_for @board do |f| %>
+		<%= f.input :board_name %>
+		<%= f.submit "Create Board" %>
+		<% end %>
+	</div>
+</div>
