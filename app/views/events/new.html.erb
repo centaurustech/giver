@@ -1,5 +1,6 @@
 <div class='container'>
 	<div class='row'>
+		<p><%= link_to("Back to Dashboard", user_path(@user.id)) %></p>
 		<h2>Create Event</h2>
 		<p id="success"><%= flash[:notice] %></p>
 		<%= simple_form_for @event do |f| %>

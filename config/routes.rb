@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :events
   resources :comments
   resources :boards
+  resources :items
+  resources :event_items
   resources :sessions, :only => [:new, :create, :destroy]
   get "users/:id/events", to: 'users#events', as: 'user_events'
   get '/signup' => 'users#new'

@@ -1,15 +1,21 @@
 class BoardsController < ApplicationController
 	def index
 		@boards = Board.where(user_id: session[:user_id])
+		@user = User.find(session[:user_id])
 	end
 
 	def show
 		@board = Board.find(params[:id])
-		# @items = Item.where(board_id: @board.id)
+		@items = Item.where(board_id: @board.id)
+		@item = Item.new
+		@events = Event.where(user_id: session[:user_id])
+		@show_items = Item.where(board_id: params[:id]).where(user_id: session[:user_id])
+		@event_item = EventItem.new
 	end
 
 	def new
 		@board = Board.new
+		@user = User.find(session[:user_id])
 	end
 
 	def create

@@ -1,5 +1,6 @@
 <div class='container'>
 	<div class='row'>
+		<p><%= link_to("Back to Dashboard", user_path(@user.id)) %></p>
 		<p>Event: <%= @event.event_name %></p>
 		<p>Owner: <%= @event.user.first_name %> <%= @event.user.last_name %></p>
 		<p>Deadline: <%= @event.deadline %></p>

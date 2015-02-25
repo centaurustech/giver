@@ -1,6 +1,9 @@
 class Event < ActiveRecord::Base
   belongs_to :user
+  has_many :comments
   has_many :users, :through => :comments
+  has_many :event_items
+  has_many :items, :through => :event_items
   attr_accessor :year, :month, :day
   validates :event_name, :user, :presence => true
   validates :deadline, :presence => true

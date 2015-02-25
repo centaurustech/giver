@@ -1,5 +1,6 @@
 <div class='container'>
 	<div class='row'>
+		<p><%= link_to("Back to Dashboard", user_path(@user.id)) %></p>
 		<h2><%= @user.first_name %>'s Events</h2>
 		<table class='table table-striped'>
 			<thead>

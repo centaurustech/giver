@@ -1,6 +1,41 @@
 <div class='container'>
 	<div class='row'>
-		<p>Hello from show board page!!</p>
-		
+		<p><%= link_to("Back to my boards", boards_path) %></p>
+		<table class='table table-striped'>
+			<thead>
+				<th>Name</th>
+				<th>Price</th>
+			</thead>
+			<tbody>
+				<% @items.each do |item| %>
+					<tr>
+						<td><%= item.item_name %></td>
+						<td><%= item.total_price %></td>
+						<!-- you will show the amount contributed here maybe -->
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+	<div class='row'>
+		<div class='col-md-4'>
+			<h3>Add Item to Board</h3>
+			<%= simple_form_for @item do |f| %>
+			<%= f.input :board_id, :as => :hidden, :input_html => {:value => @board.id} %>
+			<%= f.input :item_name %>
+			<%= f.input :total_price %>
+			<%= f.submit 'Add to board' %>
+			<% end %>
+		</div>
+		<div class='col-md-4'></div>
+		<div class='col-md-4'>
+			<h3>Add Item to Event</h3>
+			<%= simple_form_for @event_item do |f| %>
+				<%= f.input :board, :as => :hidden, :input_html => {:value => @board.id}%>
+				<%= f.association :item, label_method: :item_name, value_method: :id, include_blank: false %>
+				<%= f.association :event, label_method: :event_name, value_method: :id, include_blank: false %>
+				<%= f.submit "Add Item" %>
+			<% end %>
+		</div>
 	</div>
 </div>
