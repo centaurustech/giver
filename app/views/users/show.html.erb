@@ -5,6 +5,7 @@
 			<h2>Giver</h2>
 		</nav>
 		<p>Welcome <%= @user.first_name %></p>
+		<%= link_to("Log off", signout_path) %>
 	</div>
 	<div class='row'>
 		<div class='col-md-4'>
@@ -17,8 +18,14 @@
 				<% @friends.each do |person| %>
 					<tr>
 						<td><%= person.first_name %> <%= person.last_name %></td>
-						<td><%= link_to("Events", user_events_path)%></td>
-						<td><button class='btn btn-sm btn-primary'>Boards</button></td>
+						<td><%= link_to("Events", user_events_path(person.id))%></td>
+						<td><%= link_to("Boards", user_boards_path(person.id))%></td>
+						<td><%= simple_form_for @friendship, :url => friendship_path, :method => :delete do |f| %>
+							<%= f.input :user_id, :as => :hidden, :input_html => {:value => @user.id} %>
+							<%= f.input :friend_id, :as => :hidden, :input_html => {:value => person.id} %>
+							<%= f.submit "Remove Friend" %>
+							<% end %>
+						</td>
 					</tr>
 				<% end %>
 			</table>
@@ -35,6 +42,7 @@
 			<table class='table table-striped'>
 				<thead>
 					<th>Event</th>
+					<th>Owner</th>
 					<th>Deadline</th>
 				</thead>
 				<tbody>
@@ -45,10 +53,32 @@
 					<% @events.each do |event| %>
 						<tr>
 							<td><a href="/events/<%= event.id %>"><%= event.event_name %></a></td>
+							<td><%= event.user.first_name %></td>
 							<td><%= event.deadline %></td>
 						</tr>
 					<% end %>
 				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class='row'>
+		<div class='col-md-8'></div>
+		<div class='col-md-4'>
+			<h2>My Not Yet Friends</h2>
+			<table class='table table-striped'>
+				<% @not_friends.each do |user| %>
+					<tr>
+						<td><%= user.first_name %> <%= user.last_name %></td>
+						<td><%= link_to("Events", user_events_path(user.id))%></td>
+						<td><%= link_to("Boards", user_boards_path(user.id))%></td>
+						<td><%= simple_form_for @friendship do |f| %>
+							<%= f.input :user_id, :as => :hidden, :input_html => {:value => @user.id} %>
+							<%= f.input :friend_id, :as => :hidden, :input_html => {:value => user.id} %>
+							<%= f.submit "Add Friend" %>
+							<% end %>
+						</td>
+					</tr>
+				<% end %>
 			</table>
 		</div>
 	</div>

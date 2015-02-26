@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+	has_many :contributions
+	has_many :events, :through => :contributions
 	has_many :comments
 	has_many :events, :through => :comments
 	has_many :friendships

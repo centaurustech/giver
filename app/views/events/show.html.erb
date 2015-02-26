@@ -33,4 +33,28 @@
 			<% end %>
 		</div>
 	</div>
+	<div class='row'>
+		<div class='col-md-5'>
+			<h3><%= @event.user.first_name%>'s Wishlist</h3>
+			<p><%= link_to(@event.user.first_name + "'s boards", user_boards_path(@event.user.id))%></p>
+			<table class='table table-striped'>
+				<thead>
+					<th>Item</th>
+					<th>Price</th>
+					<th>Total Contributions</th>
+					<th>Contribute</th>
+				</thead>
+				<tbody>
+					<% @event.items.each do |event| %>
+						<tr>
+							<td><%= event.item_name %></td>
+							<td>$<%= event.total_price %>.00</td>
+							<td>$5.00</td>
+							<td><%= link_to("Pitch In", new_contribution_path) %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </div>

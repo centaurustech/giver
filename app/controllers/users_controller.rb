@@ -3,8 +3,8 @@ class UsersController < ApplicationController
   	@user = User.new
   end
   def events
-    @events = Event.where(user_id: session[:user_id])
-    @user = User.find(session[:user_id])
+    @events = Event.where(user_id: params[:id])
+    @user = User.find(params[:id])
   end
   def show
   	@user = User.find(session[:user_id])
@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     users = User.where('id != ?', session[:user_id])
     @friends = User.find(session[:user_id]).friends
     @not_friends = users - @friends
+    @friendship = Friendship.new
   end
   def create
   	@user = User.new(user_params)
@@ -21,6 +22,11 @@ class UsersController < ApplicationController
   	else
 
   	end
+  end
+
+  def destroy
+    sign_out
+    redirect_to user
   end
 
   private
