@@ -1,5 +1,13 @@
 <div class='container'>
 	<div class='row'>
+		<p>Event<%= @event %></p>
+		<p>User<%= @user %></p>
 		<p>Hello from the new contributions page!!!</p>
+		<%= simple_form_for @contribution do |f| %>
+		<%= f.input :amount %>
+		<%= f.input :user, :as => :hidden, :input_html => {value: @user} %>
+		<%= f.input :event, :as => :hidden, :input_html => {value: @event} %>
+		<%= f.submit "Pitch in!" %>
+		<% end %>
 	</div>
 </div>
