@@ -7,6 +7,11 @@ class EventsController < ApplicationController
 		@event = Event.find(params[:id])
 		@comments = Comment.where(event_id: params[:id])
 		@comment = Comment.new
+		@contributions = Contribution.where(event_id: @event)
+		@event_contributions = 0
+		@contributions.each do |contribution| 
+			@event_contributions = contribution.amount + @event_contributions
+		end
 	end
 
 	def new

@@ -11,7 +11,9 @@
 		<div class='col-md-4'>
 			<h2><%= link_to("My Boards", boards_path) %></h2>
 		</div>
-		<div class='col-md-4'></div>
+		<div class='col-md-4'>
+			<h2><%= link_to("My Contributions", contribution_path(@user.id)) %></h2>
+		</div>
 		<div class='col-md-4'>
 			<h2>My Friends</h2>
 			<table class='table table-striped'>

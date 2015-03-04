@@ -2,17 +2,17 @@ Rails.application.routes.draw do
   resources :users
   resources :events
   resources :comments
-
-  ##boards index goes to the logged in users boards
-  ##the custom route will go to the selected users board page, basically an alias for boards#show####
   resources :friendships
   resources :boards
   resources :items
   resources :event_items
   resources :contributions
   resources :sessions, :only => [:new, :create, :destroy]
+  ##boards index goes to the logged in users boards
+  ##the custom route will go to the selected users board page, basically an alias for boards#show####
   get "users/:id/events", to: 'users#events', as: 'user_events'
   get "boards/:id/board", to: 'boards#user', as: 'user_boards'
+  get "contributions/:id/new/:item_id", to: 'contributions#new', as: 'event_contribution'
   get '/signup' => 'users#new'
   get '/signin' => 'sessions#new'
   get '/signout' => 'sessions#destroy'
