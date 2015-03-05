@@ -14,4 +14,24 @@
  *= require_self
  */
 
-
+.board{
+	border: 1px solid black;
+	height: 150px;
+	padding-top: 50px;
+	margin: 10px;
+	box-shadow: 10px 10px 5px #888888;
+}
+.table_board{
+	border: 1px solid black;
+	
+	padding-top: 50px;
+	margin: 10px;
+	box-shadow: 10px 10px 5px #888888;
+}
+.my_nav{
+	padding-left: 20px;
+}
+.my_nav p{
+	display: inline-block;
+}
+@import "bootstrap"
