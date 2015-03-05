@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get "users/:id/events", to: 'users#events', as: 'user_events'
   get "boards/:id/board", to: 'boards#user', as: 'user_boards'
   get "contributions/:id/new/:item_id", to: 'contributions#new', as: 'event_contribution'
-  get '/signup' => 'users#new'
+  get '/signup' => 'users#index'
   get '/signin' => 'sessions#new'
   get '/signout' => 'sessions#destroy'
 

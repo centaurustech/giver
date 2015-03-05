@@ -1,7 +1,6 @@
 <div class='container'>
 	<div class='row'>
-		<p><%= link_to("Back to dashboard", user_path(@user.id)) %></p>
-		<p>hello from boards index page!!</p>
+		<p><%= link_to("Back to dashboard", user_path(@user.id)) %></p> 
 		<% @boards.each do |board| %>
 			<h4><%= link_to(board.board_name, board_path(board.id)) %></h4>
 		<% end %>

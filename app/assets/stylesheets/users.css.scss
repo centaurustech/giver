@@ -6,5 +6,7 @@
 .my_nav{
 	padding-left: 20px;
 }
-
+.my_nav p{
+	display: inline-block;
+}
 @import "bootstrap"
