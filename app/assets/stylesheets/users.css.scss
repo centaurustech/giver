@@ -9,10 +9,14 @@
 .my_nav p{
 	display: inline-block;
 }
-.registration_page{
+body{
 	background-image: url(/assets/registration.jpg);
 	background-repeat: no-repeat;
 	height: 550px;
+}
+.container{
+	background-color: #E8E8E8;
+	opacity: .8;
 }
 
 

@@ -1,8 +1,10 @@
 <div class='container'>
 	<div class='row'>
-		<p><%= link_to("Back to dashboard", user_path(@user.id)) %></p> 
+		<p><%= link_to("Back to dashboard", user_path(@user.id)) %></p>
 		<% @boards.each do |board| %>
+		<div class='col-md-3 board text-center'>
 			<h4><%= link_to(board.board_name, board_path(board.id)) %></h4>
+		</div>
 		<% end %>
 	</div>
 </div>

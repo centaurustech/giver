@@ -12,7 +12,7 @@
 				<% @contributions.each do |contribution| %>
 					<tr>
 						<td>$<%= contribution.amount %>.00</td>
-						<td><%= contribution.event.user.first_name %></td>
+						<td><%= contribution.event.user.first_name %> <%= contribution.event.user.last_name %></td>
 						<td><%= link_to(contribution.event.event_name, event_path(contribution.event.id)) %></td>
 					</tr>
 				<% end %>

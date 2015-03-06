@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
 
 	def create
 		@item = Item.new(item_params)
-		@item.photo = params[:photo]
+		# @item.photo = params[:photo]
 		if @item.save
 			flash[:success] = 'Item successfully created'
 			redirect_to board_path(item_params[:board_id])
@@ -31,6 +31,6 @@ class ItemsController < ApplicationController
 
 	private
 		def item_params
-			params.require(:item).permit(:board_id, :item_name, :total_price)
+			params.require(:item).permit(:board_id, :item_name, :total_price, :photo)
 		end
 end

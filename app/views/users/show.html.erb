@@ -51,6 +51,13 @@
 						<td><%= link_to("Create Event", new_event_path) %></td>
 						
 					</tr>
+					<% @my_events.each do |event| %>
+						<tr>
+							<td><a href="/events/<%= event.id %>"><%= event.event_name %></a></td>
+							<td><%= event.user.first_name %></td>
+							<td><%= event.deadline %></td>
+						</tr>
+					<% end %>
 					<% @events.each do |event| %>
 						<tr>
 							<td><a href="/events/<%= event.id %>"><%= event.event_name %></a></td>

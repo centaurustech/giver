@@ -8,11 +8,14 @@ class UsersController < ApplicationController
   end
   def show
   	@user = User.find(session[:user_id])
+    # show events only from YOUR friends
     @events = Event.all
     users = User.where('id != ?', session[:user_id])
     @friends = User.find(session[:user_id]).friends
     @not_friends = users - @friends
     @friendship = Friendship.new
+    @my_events = Event.where(:user_id => @user)
+    @events = Event.where(:user_id => @friends)
   end
   def create
   	@user = User.new(user_params)

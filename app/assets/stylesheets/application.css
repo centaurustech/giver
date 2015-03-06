@@ -36,5 +36,19 @@
 .my_nav p{
 	display: inline-block;
 }
+.item_board{
+	border: 1px solid black;
+	height: 350px;
+	padding-top: 50px;
+	margin: 20px;
+	box-shadow: 10px 10px 5px #888888;
+}
+.event_board{
+	border: 1px solid black;
+	height: 500px;
+	padding-top: 50px;
+	margin: 20px;
+	box-shadow: 10px 10px 5px #888888;
+}
 
 @import "bootstrap"

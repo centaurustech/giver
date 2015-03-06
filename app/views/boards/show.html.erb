@@ -1,27 +1,20 @@
 <div class='container'>
 	<div class='row'>
 		<p><%= link_to("Back to my boards", boards_path) %></p>
-		<table class='table table-striped'>
-			<thead>
-				<th>Name</th>
-				<th>Price</th>
-			</thead>
-			<tbody>
-				<% @items.each do |item| %>
-					<tr>
-						<td><%= item.item_name %></td>
-						<td>$<%= item.total_price %>.00</td>
-						<!-- you will show the amount contributed here maybe -->
-					</tr>
-				<% end %>
-			</tbody>
-		</table>
+		<% @items.each do |item| %>
+			<div class='col-md-3 item_board text-center'>
+				<h5><%= item.item_name %></h5>
+				<h5>$<%= item.total_price %>.00</h5>
+				<p><%= image_tag item.photo.url(:medium) %></p>
+			</div>		
+		<% end %>
+		
 	</div>
 	<div class='row'>
 		<div class='col-md-4'>
 			<h3>Add Item to Board</h3>
 			<p><%= notice %></p>
-			<%= simple_form_for @item do |f| %>
+			<%= simple_form_for @item, :html => { :multipart => true } do |f| %>
 			<%= f.input :board_id, :as => :hidden, :input_html => {:value => @board.id} %>
 			<%= f.input :item_name %>
 			<%= f.input :total_price %>
