@@ -25,6 +25,7 @@
 			<%= f.input :board_id, :as => :hidden, :input_html => {:value => @board.id} %>
 			<%= f.input :item_name %>
 			<%= f.input :total_price %>
+			<%= f.file_field :photo %>
 			<%= f.submit 'Add to board' %>
 			<% end %>
 		</div>

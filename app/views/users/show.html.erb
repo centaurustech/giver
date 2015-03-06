@@ -1,13 +1,9 @@
 <div class='container show'>
 	<div class='row'>
-		<p id="success"><%= flash[:success] %></p>
-		<nav class='navbar my_nav navbar-default'>
-			<h2>Giver</h2>
+		<div class='my_nav'>
 			<p class='name'>Welcome <%= @user.first_name %></p>
 			<p class='text-right'><%= link_to("Log off", signout_path) %></p>
-		</nav>
-		
-		
+		</div>
 	</div>
 	<div class='row'>
 		<div class='col-md-3 board text-center'>
@@ -33,7 +29,7 @@
 						<td><%= simple_form_for @friendship, :url => friendship_path, :method => :delete do |f| %>
 							<%= f.input :user_id, :as => :hidden, :input_html => {:value => @user.id} %>
 							<%= f.input :friend_id, :as => :hidden, :input_html => {:value => person.id} %>
-							<%= f.submit "Remove Friend" %>
+							<%= f.submit "Remove Friend", :class => "btn btn-sm btn-primary" %>
 							<% end %>
 						</td>
 					</tr>
@@ -76,7 +72,7 @@
 						<td><%= simple_form_for @friendship do |f| %>
 							<%= f.input :user_id, :as => :hidden, :input_html => {:value => @user.id} %>
 							<%= f.input :friend_id, :as => :hidden, :input_html => {:value => user.id} %>
-							<%= f.submit "Add Friend" %>
+							<%= f.submit "Add Friend", :class => "btn btn-sm btn-primary" %>
 							<% end %>
 						</td>
 					</tr>

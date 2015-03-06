@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
 
 	def create
 		@item = Item.new(item_params)
+		@item.photo = params[:photo]
 		if @item.save
 			flash[:success] = 'Item successfully created'
 			redirect_to board_path(item_params[:board_id])
