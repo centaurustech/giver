@@ -5,6 +5,8 @@ class EventsController < ApplicationController
 	def show
 		@user = User.find(session[:user_id])
 		@event = Event.find(params[:id])
+		@date = (Date.parse(@event.deadline) - Date.today).to_s
+		@date.slice! "/1"
 		@comments = Comment.where(event_id: params[:id])
 		@comment = Comment.new
 		@contributions = Contribution.where(event_id: @event)
@@ -36,6 +38,7 @@ class EventsController < ApplicationController
 			params.require(:event).permit(:event_name, :day, :month, :year)
 		end
 		def deadline_params
-			Time.new(event_params[:year], event_params[:month], event_params[:day])	
+			require 'date'	
+			Date.parse(event_params[:month].to_s + " " + event_params[:day].to_s, ", " + event_params[:year].to_s)
 		end
 end

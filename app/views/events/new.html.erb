@@ -5,8 +5,8 @@
 		<p id="success"><%= flash[:notice] %></p>
 		<%= simple_form_for @event do |f| %>
 		<%= f.input :event_name %>
+		<%= f.input :month, collection: months, prompt: "Month" %>
 		<%= f.input :day, collection: 1..31, prompt: "Day" %>
-		<%= f.input :month, collection: 1..12, prompt: "Month" %>
 		<%= f.input :year, collection: 2015..2020, prompt: "Year" %>
 		<%= f.submit "Create Event" %>
 		<% end %>

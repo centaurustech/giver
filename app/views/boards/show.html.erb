@@ -27,10 +27,10 @@
 			<h3>Add Item to Event</h3>
 			<p><%= notice %></p>
 			<%= simple_form_for @event_item do |f| %>
-				<%= f.input :board, :as => :hidden, :input_html => {:value => @board.id}%>
-				<%= f.association :item, label_method: :item_name, value_method: :id, include_blank: false %>
-				<%= f.association :event, label_method: :event_name, value_method: :id, include_blank: false %>
-				<%= f.submit "Add Item" %>
+			<%= f.input :board, :as => :hidden, :input_html => {:value => @board.id}%>
+			<%= f.association :item, :collection => @items, :label_method => :item_name, :value_method => :id, :label => "Item" , :include_blank => false %>
+			<%= f.association :event, :collection => @events, :label_method => :event_name, :value_method => :id, :label => "Event" , :include_blank => false %>
+			<%= f.submit "Add Item" %>
 			<% end %>
 		</div>
 	</div>

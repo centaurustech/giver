@@ -13,6 +13,6 @@ class Event < ActiveRecord::Base
 
   def deadline_must_be_future
     errors.add(:deadline, "can't be in the past") if
-      !deadline.blank? and deadline < Time.new
+      !deadline.blank? and deadline < Date.today
   end
 end

@@ -13,8 +13,8 @@ class BoardsController < ApplicationController
 		@board = Board.find(params[:id])
 		@items = Item.where(board_id: @board.id)
 		@item = Item.new
-		# @events = Event.where(user_id: session[:user_id])
-		# @show_items = Item.where(board_id: params[:id]).where(user_id: session[:user_id])
+		@events = Event.where(user_id: session[:user_id])
+		@items = Item.where(board_id: params[:id])
 		@event_item = EventItem.new
 	end
 
@@ -27,7 +27,8 @@ class BoardsController < ApplicationController
 		@board = Board.create(board_name: board_params[:board_name], user_id: session[:user_id])
 		if @board.save
 			flash[:success] = "Board created"
-			redirect_to user_path(session[:user_id])
+			# redirect_to user_path(session[:user_id])
+			redirect_to boards_path
 		else
 			flash[:notice] = "Try again"
 			redirect_to new_board_path

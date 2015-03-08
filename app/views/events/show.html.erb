@@ -4,7 +4,7 @@
 		<h1 class='text-center'><%= @event.user.first_name %> <%= @event.user.last_name %></h1>
 		<h2 class='text-center'><%= @event.event_name %></h2>
 		<p class='text-center'>Deadline: <%= @event.deadline %></p>
-		<p class='text-center'>Time remaining: {calculate dif between Time.now and deadline}</p>
+		<p class='text-center'>Time remaining: <%= @date %> days</p>
 	</div>
 	<div class='row'>
 		<div class='col-md-4'>
