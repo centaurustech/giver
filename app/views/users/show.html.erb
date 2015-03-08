@@ -56,6 +56,10 @@
 							<td><a href="/events/<%= event.id %>"><%= event.event_name %></a></td>
 							<td><%= event.user.first_name %></td>
 							<td><%= event.deadline %></td>
+							<td><% if event.user.id == @user.id %>
+								<%= link_to "Cancel", event_path(event.id), method: :delete %>
+								<% end %>
+							</td>
 						</tr>
 					<% end %>
 					<% @events.each do |event| %>

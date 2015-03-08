@@ -30,8 +30,21 @@ class EventsController < ApplicationController
 			flash[:notice] = "Please make sure you fill in all fields and event is after today"
 			redirect_to new_event_path
 		end
-		
 	end
+
+	def destroy
+		puts "\n\n\n\n\n\n"
+		puts params
+		puts "\n\n\n\n\n\n"
+		# in addition to destroying the event, we must also destroy all EventItems
+		##related to that event, along with comments, and contributions
+		
+		#SO 1. Events, 2. EventItems, 3. Contributions, 4. Comments
+
+		# also, there should probably be an JS alert going off when someone presses
+		##the delete button, you know, to confirm??
+	end
+		
 
 	private
 		def event_params
