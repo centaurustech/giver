@@ -3,7 +3,7 @@ Rails.application.configure do
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
-      :bucket => ENV['mygiver-assets'],
+      :bucket => ENV['mygiver'],
       :access_key_id => ENV['AKIAJOSMVKQGYHWOIB7Q'],
       :secret_access_key => ENV['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']
     }
