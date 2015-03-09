@@ -1,4 +1,8 @@
 <div class='container'>
+	<div class='my_nav'>
+		<p class='name'>Welcome <%= @user.first_name %></p>
+		<p class='text-right'><%= link_to("Log off", signout_path) %></p>
+	</div>
 	<div class='row'>
 		<div class='col-md-3 board text-center'>
 			<h2><%= link_to("My Boards", boards_path) %></h2>
@@ -14,10 +18,6 @@
 </div>
 <div class='container show'>
 	<div class='row'>
-		<div class='my_nav'>
-			<p class='name'>Welcome <%= @user.first_name %></p>
-			<p class='text-right'><%= link_to("Log off", signout_path) %></p>
-		</div>
 	</div>
 	<div class='row'>
 		<div class='col-md-4'>
