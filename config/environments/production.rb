@@ -9,7 +9,15 @@ Rails.application.configure do
   #     :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
   #   }
   # }
-  config.action_controller.asset_host = "//#{ENV['mygiver']}.s3.amazonaws.com"
+  # config.action_controller.asset_host = "//#{ENV['mygiver']}.s3.amazonaws.com"
+  config.action_mailer.smtp_settings = {
+      address: "smtp.gmail.com",
+      port: 587,
+      authentication: "plain",
+      enable_starttls_auto: true,
+      user_name: ENV["EMAIL_LOGIN"],
+      password: ENV["EMAIL_PASSWORD"]
+  }
   # Code is not reloaded between requests.
   config.cache_classes = true
 
