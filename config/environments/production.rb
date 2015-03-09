@@ -1,15 +1,5 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  # config.paperclip_defaults = {
-  #   :storage => :s3,
-  #   :s3_protocol => 'http',
-  #   :s3_credentials => {
-  #     :bucket => ENV['AWS_BUCKET'],
-  #     :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-  #     :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-  #   }
-  # }
-  # config.action_controller.asset_host = "//#{ENV['mygiver']}.s3.amazonaws.com"
   config.action_mailer.smtp_settings = {
       address: "smtp.gmail.com",
       port: 587,
