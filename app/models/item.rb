@@ -4,7 +4,7 @@ class Item < ActiveRecord::Base
   has_many :events, :through => :event_items
   has_attached_file :photo, :default_url => "/images/missing.png"
   has_attached_file :photo, :styles => { :medium => "200x150>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png",
-	    :url  => ":s3_domain_url",
+	    :url  => "http://s3-eu-west-2.amazonaws.com/mygiver",
 	    :path => "public/avatars/:id/:style_:basename.:extension",
 	    :storage => :fog,
 	    :fog_credentials => {
