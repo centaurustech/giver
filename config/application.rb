@@ -1,16 +1,17 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
-config.paperclip_defaults = {
-            :storage => :s3,
-            :s3_host_name => 's3-us-west-2.amazonaws.com'
- }
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
 module Giver
   class Application < Rails::Application
+    config.paperclip_defaults = {
+        :storage => :s3,
+        :s3_host_name => 's3-us-west-2.amazonaws.com'
+    }
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
