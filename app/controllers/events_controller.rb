@@ -33,9 +33,20 @@ class EventsController < ApplicationController
 	end
 
 	def destroy
-		puts "\n\n\n\n\n\n"
+		puts "Event id: \n\n\n\n\n\n"
 		puts params
 		puts "\n\n\n\n\n\n"
+			# destroy the event
+		Event.find(params[:id]).destroy
+			#destroy the event items
+		eventitem = EventItem.where(event_id: params[:id])
+		EventItem.find(eventitem[0].id).destroy
+			#destroy the contributions
+		Contribution.where(event_id: params[:id]).destroy_all
+			#destroy the comments
+		Comment.where(event_id: params[:id]).destroy_all
+		redirect_to user_path(session[:user_id])
+		
 		# in addition to destroying the event, we must also destroy all EventItems
 		##related to that event, along with comments, and contributions
 		

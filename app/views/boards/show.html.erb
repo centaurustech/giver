@@ -6,10 +6,13 @@
 				<h5><%= item.item_name %></h5>
 				<h5>$<%= item.total_price %>.00</h5>
 				<p><%= image_tag item.photo.url(:medium) %></p>
+				<p><%= link_to("Remove Item")%></p>
 			</div>		
 		<% end %>
 		
 	</div>
+</div>
+<div class='container show'>
 	<div class='row'>
 		<div class='col-md-4'>
 			<h3>Add Item to Board</h3>
@@ -19,7 +22,7 @@
 			<%= f.input :item_name %>
 			<%= f.input :total_price %>
 			<%= f.file_field :photo %>
-			<%= f.submit 'Add to board' %>
+			<%= f.submit 'Add to board', :class => "btn btn-md btn-primary" %>
 			<% end %>
 		</div>
 		<div class='col-md-4'></div>
@@ -30,7 +33,7 @@
 			<%= f.input :board, :as => :hidden, :input_html => {:value => @board.id}%>
 			<%= f.association :item, :collection => @items, :label_method => :item_name, :value_method => :id, :label => "Item" , :include_blank => false %>
 			<%= f.association :event, :collection => @events, :label_method => :event_name, :value_method => :id, :label => "Event" , :include_blank => false %>
-			<%= f.submit "Add Item" %>
+			<%= f.submit "Add Item", :class => "btn btn-md btn-primary" %>
 			<% end %>
 		</div>
 	</div>

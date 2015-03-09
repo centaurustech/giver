@@ -27,6 +27,12 @@ class ItemsController < ApplicationController
 	end
 
 	def destroy
+		#destroy item
+		Item.find(params[:id]).destroy
+		#destroy eventItem
+		eventitem = EventItem.where(item_id: params[:id])
+		EventItem.find(eventitem[0].id).destroy
+		# redirect_to board_path()
 	end
 
 	private

@@ -1,9 +1,6 @@
 <div class='container'>
-	<div class='row'>
-		<p>Event<%= @event %></p>
-		<p>User<%= @user %></p>
-		<p>Item<%= @item %></p>
-		<p>Hello from the new contributions page!!!</p>
+	<div class='col-md-4'>
+		<%= link_to("Back to Event", event_path(@event)) %>
 		<%= simple_form_for @contribution do |f| %>
 		<%= f.input :amount %>
 		<%= f.input :user_id, :as => :hidden, :input_html => {value: @user} %>
