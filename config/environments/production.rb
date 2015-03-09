@@ -1,13 +1,13 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  # config.paperclip_defaults = {
-  #   :storage => :s3,
-  #   :s3_credentials => {
-  #     :bucket => ENV['mygiver'],
-  #     :access_key_id => ENV['AKIAJOSMVKQGYHWOIB7Q'],
-  #     :secret_access_key => ENV['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']
-  #   }
-  # }
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['mygiver'],
+      :access_key_id => ENV['AKIAJOSMVKQGYHWOIB7Q'],
+      :secret_access_key => ENV['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']
+    }
+  }
   # Code is not reloaded between requests.
   config.cache_classes = true
 
