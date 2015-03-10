@@ -6,7 +6,7 @@
 				<h5><%= item.item_name %></h5>
 				<h5>$<%= item.total_price %>.00</h5>
 				<p><%= image_tag item.photo.url(:medium) %></p>
-				<p><%= link_to("Remove Item")%></p>
+				<p><%= link_to("Remove Item", item_path(item.id), method: :delete)%></p>
 			</div>		
 		<% end %>
 		

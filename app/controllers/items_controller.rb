@@ -27,12 +27,24 @@ class ItemsController < ApplicationController
 	end
 
 	def destroy
+		# user should also receive JS alert for them to confirm if they ACTUALLY want 
+		##to destroy the item, and that all contributions associated with the ITEM
+		##will also be destroyed
 		#destroy item
-		Item.find(params[:id]).destroy
+		item = Item.find(params[:id])
+		@board = item.board_id
+		item.destroy
 		#destroy eventItem
 		eventitem = EventItem.where(item_id: params[:id])
-		EventItem.find(eventitem[0].id).destroy
-		# redirect_to board_path()
+		if !eventitem.nil?
+			EventItem.find(eventitem[0].id).destroy
+		end
+		#destroy related contributions
+		contribution = Contribution.where(event_id: eventitem[0].event_id)
+		if !contribution.nil?
+			contribution.destroy_all
+		end
+		redirect_to board_path(@board)
 	end
 
 	private

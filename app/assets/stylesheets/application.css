@@ -33,9 +33,12 @@
 .my_nav h2{
 	padding-left: 20px;
 	color: white;
-}
-.my_nav p{
 	display: inline-block;
+}
+.blurb{
+	display: inline-block;
+	color: white;
+	padding-left: 50px;
 }
 .item_board{
 	border: 1px solid black;
