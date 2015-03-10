@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     @friendship = Friendship.new
     @my_events = Event.where(:user_id => @user)
     @events = Event.where(:user_id => @friends)
+    @eventitems = EventItem.all
   end
   def create
   	@user = User.new(user_params)

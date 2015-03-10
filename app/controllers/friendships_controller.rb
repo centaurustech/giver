@@ -1,4 +1,14 @@
 class FriendshipsController < ApplicationController
+	def show
+		@user = User.find(session[:user_id])
+		@events = Event.all
+	 	users = User.where('id != ?', session[:user_id])
+	 	@friends = User.find(session[:user_id]).friends
+	    @not_friends = users - @friends
+	    @friendship = Friendship.new
+	    @my_events = Event.where(:user_id => @user)
+   		@events = Event.where(:user_id => @friends)
+	end
 	def create
 		# Friendship.create(user_id: session[:user_id], friend_id: params[:id])
 		# redirect_to user_path(session[:user_id])

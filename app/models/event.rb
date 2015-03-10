@@ -7,7 +7,7 @@ class Event < ActiveRecord::Base
   has_many :event_items
   has_many :items, :through => :event_items
   attr_accessor :year, :month, :day
-  validates :event_name, :user, :presence => true
+  validates :event_name, :description, :user, :presence => true
   validates :deadline, :presence => true
   validate :deadline_must_be_future
 

@@ -2,6 +2,7 @@
 	<div class='my_nav'>
 		<p class='name'>Welcome <%= @user.first_name %></p>
 		<p class='text-right'><%= link_to("Log off", signout_path) %></p>
+		<p class='text-right'><%= link_to("Friends", friendship_path(@user.id))%></p>
 	</div>
 	<div class='row'>
 		<div class='col-md-3 board text-center'>
@@ -98,3 +99,35 @@
 		
 	<!-- </div> -->
 </div>
+	<div class='container'>
+		<% if !@my_events.nil? %>
+		<div class='col-md-3 item_board text-center'>
+			<% @my_events.each do |event| %>
+				<p><a href="/events/<%= event.id %>"><%= event.event_name %></a></p>
+				
+					
+				
+				<p><%= event.user.first_name %></p>
+				<p><%= event.description %></p>
+				<p><%= event.deadline %></p>
+				<p><% if event.user.id == @user.id %>
+					<%= link_to "Cancel My Event", event_path(event.id), method: :delete %>
+					<% end %>
+				</p>
+			<% end %>
+		</div>
+		<% end %>
+		<% if !@events.nil? %>
+		<div class='col-md-3 item_board text-center'>
+			<% @events.each do |event| %>
+				
+					<p><a href="/events/<%= event.id %>"><%= event.event_name %></a></p>
+					<p><%= event.user.first_name %></p>
+					<p><%= event.description %></p>
+					<p><%= event.deadline %></p>
+				
+			<% end %>
+		</div>
+		<% end %>
+		
+	</div>

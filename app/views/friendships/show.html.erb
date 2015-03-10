@@ -1,0 +1,39 @@
+<div class='container'>
+	<p><%= link_to("Back to dashboard", user_path(@user.id))%></p>
+	<div class='col-md-4'>
+		<h2>My Friends</h2>
+		<table class='table table-striped'>
+			<% @friends.each do |person| %>
+				<tr>
+					<td><%= person.first_name %> <%= person.last_name %></td>
+					<td><%= link_to("Events", user_events_path(person.id))%></td>
+					<td><%= link_to("Boards", user_boards_path(person.id))%></td>
+					<td><%= simple_form_for @friendship, :url => friendship_path, :method => :delete do |f| %>
+						<%= f.input :user_id, :as => :hidden, :input_html => {:value => @user.id} %>
+						<%= f.input :friend_id, :as => :hidden, :input_html => {:value => person.id} %>
+						<%= f.submit "Remove Friend", :class => "btn btn-sm btn-primary" %>
+						<% end %>
+					</td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+	<div class='col-md-3'>
+		<h2>My Not Yet Friends</h2>
+		<table class='table table-striped'>
+			<% @not_friends.each do |user| %>
+				<tr>
+					<td><%= user.first_name %> <%= user.last_name %></td>
+					<td><%= link_to("Events", user_events_path(user.id))%></td>
+					<td><%= link_to("Boards", user_boards_path(user.id))%></td>
+					<td><%= simple_form_for @friendship do |f| %>
+						<%= f.input :user_id, :as => :hidden, :input_html => {:value => @user.id} %>
+						<%= f.input :friend_id, :as => :hidden, :input_html => {:value => user.id} %>
+						<%= f.submit "Add Friend", :class => "btn btn-sm btn-primary" %>
+						<% end %>
+					</td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+</div>

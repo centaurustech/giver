@@ -22,7 +22,7 @@ class EventsController < ApplicationController
 	end
 
 	def create
-		@event = Event.new(event_name: event_params[:event_name], deadline: deadline_params, user_id: session[:user_id])
+		@event = Event.new(event_name: event_params[:event_name], description: event_params[:description], deadline: deadline_params, user_id: session[:user_id])
 		if @event.save
 			flash[:success] = "Event successfully created"
 			redirect_to user_path(session[:user_id])
@@ -59,7 +59,7 @@ class EventsController < ApplicationController
 
 	private
 		def event_params
-			params.require(:event).permit(:event_name, :day, :month, :year)
+			params.require(:event).permit(:event_name, :description, :day, :month, :year)
 		end
 		def deadline_params
 			require 'date'	
