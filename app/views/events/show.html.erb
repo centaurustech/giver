@@ -3,6 +3,7 @@
 		<p><%= link_to("Back to Dashboard", user_path(@user.id)) %></p>
 		<h1 class='text-center'><%= @event.user.first_name %> <%= @event.user.last_name %></h1>
 		<h2 class='text-center'><%= @event.event_name %></h2>
+		<!-- <p class='text-center'><%= @event.description %></p> -->
 		<p class='text-center'>Deadline: <%= @event.deadline %></p>
 		<p class='text-center'>Time remaining: <%= @date %> days</p>
 	</div>
