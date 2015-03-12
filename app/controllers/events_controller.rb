@@ -33,6 +33,13 @@ class EventsController < ApplicationController
 	end
 
 	def destroy
+		# in addition to destroying the event, we must also destroy all EventItems
+		##related to that event, along with comments, and contributions
+		
+		#SO 1. Events, 2. EventItems, 3. Contributions, 4. Comments
+
+		# also, there should probably be an JS alert going off when someone presses
+		##the delete button, you know, to confirm??
 		puts "Event id: \n\n\n\n\n\n"
 		puts params
 		puts "\n\n\n\n\n\n"
@@ -47,13 +54,6 @@ class EventsController < ApplicationController
 		Comment.where(event_id: params[:id]).destroy_all
 		redirect_to user_path(session[:user_id])
 		
-		# in addition to destroying the event, we must also destroy all EventItems
-		##related to that event, along with comments, and contributions
-		
-		#SO 1. Events, 2. EventItems, 3. Contributions, 4. Comments
-
-		# also, there should probably be an JS alert going off when someone presses
-		##the delete button, you know, to confirm??
 	end
 		
 

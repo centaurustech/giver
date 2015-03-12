@@ -14,7 +14,7 @@ class Item < ActiveRecord::Base
 	    },
     	fog_directory: ENV["FOG_DIRECTORY"]
 
-  # , :default_url => "/images/:style/missing.png", :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/environments/production.rb", :path => "giver/:attachment/:style/:id.:extension"
+ 
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
   validates :photo, :attachment_presence => true
   validates :item_name, :total_price, :board_id, :photo, presence: true
