@@ -1,28 +1,15 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Giver is a website to crowdfund gifts. Say your friend's birthday is coming up, and you want to get him something nice, but you are just about broke. If you see on Giver that your friend attached a new guitar to his birthday event, you can "Pitch In" however much you want!
 
-Things you may want to cover:
+Users can have boards to organize their "items", and each board has items. Users can add their own items to their own events, and can contribute to ANY event, including their own. 
 
-* Ruby version
+*note: Still in development, not yet doing payments...
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![Alt text](/dashboard.png?raw=true "Dashboard")
+![Alt text](/board.png?raw=true "Board")
+![Alt text](/event.png?raw=true "Event")
+![Alt text](/contributions.png?raw=true "Contributions")
 
 
-Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
