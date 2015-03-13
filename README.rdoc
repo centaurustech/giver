@@ -5,7 +5,7 @@ Giver is a website to crowdfund gifts. Say your friend's birthday is coming up, 
 Users can have boards to organize their "items", and each board has items. Users can add their own items to their own events, and can contribute to ANY event, including their own. 
 
 *note: Still in development, not yet doing payments...
-
+![dashboard](https://github.com/tobyredd/giver/raw/master/dashboard.png)
 ![dashboard](https://raw.github.com/tobyredd/giver/master/dashboard.png)
 ![dashboard](https://github.com/tobyredd/giver/dashboard.png)
 ![Alt text](./dashboard.png?raw=true "Dashboard")
