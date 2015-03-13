@@ -6,10 +6,10 @@ Users can have boards to organize their "items", and each board has items. Users
 
 *note: Still in development, not yet doing payments...
 
-![Alt text](/dashboard.png?raw=true "Dashboard")
-![Alt text](/board.png?raw=true "Board")
-![Alt text](/event.png?raw=true "Event")
-![Alt text](/contributions.png?raw=true "Contributions")
+![Alt text](./dashboard.png?raw=true "Dashboard")
+![Alt text](./board.png?raw=true "Board")
+![Alt text](./event.png?raw=true "Event")
+![Alt text](./contributions.png?raw=true "Contributions")
 
 
 <tt>rake doc:app</tt>.
