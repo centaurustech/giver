@@ -1,4 +1,4 @@
-== README
+# Giver
 
 Giver is a website to crowdfund gifts. Say your friend's birthday is coming up, and you want to get him something nice, but you are just about broke. If you see on Giver that your friend attached a new guitar to his birthday event, you can "Pitch In" however much you want!
 
