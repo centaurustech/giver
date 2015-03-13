@@ -7,7 +7,7 @@ Users can have boards to organize their "items", and each board has items. Users
 *note: Still in development, not yet doing payments...
 
 
-![dashboard](https://github.com/tobyredd/giver/raw/master/dashboard.png)
+[[ https://github.com/tobyredd/giver/raw/master/dashboard.png | height = 100px ]]
 ![board](https://github.com/tobyredd/giver/raw/master/board.png)
 ![event](https://github.com/tobyredd/giver/raw/master/event.png)
 ![contributions](https://github.com/tobyredd/giver/raw/master/contributions.png)
